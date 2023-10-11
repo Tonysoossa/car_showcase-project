@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import { Box, Flex, Spacer, Heading, Text } from "@chakra-ui/react";
+import { CustomButton } from "./CustomButton";
 
 const Hero = () => {
+  const handleScroll = () => {};
   return (
     <Box>
       <Flex
@@ -29,7 +32,36 @@ const Hero = () => {
             Streamline your car rental experience with our effortless booking
             process.
           </Text>
+          <CustomButton
+            title="Explore Cars"
+            bg="blue.400"
+            fontStyle="white"
+            rounded="full"
+            mt="10"
+            handleClick={handleScroll}
+          />
         </Box>
+        <Flex
+          title="hero_image-container"
+          flex={{ xl: "1.5" }}
+          justify="flex-end"
+          alignItems="end"
+          w="full"
+          h={{ xl: "100vh" }}
+        >
+          <Box
+            title="hero_image"
+            position="relative"
+            w={{ xl: "full" }}
+            width="90%"
+            h={{ xl: "full" }}
+            height="590px"
+            zIndex="0"
+          >
+            {" "}
+            <Image src={} />
+          </Box>
+        </Flex>
       </Flex>
     </Box>
   );
@@ -37,5 +69,5 @@ const Hero = () => {
 
 export default Hero;
 
-// NOTE text-[27px] text-black-100 font-light mt-5;
+// NOTE relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
 //
