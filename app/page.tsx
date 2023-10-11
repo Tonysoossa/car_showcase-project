@@ -1,7 +1,12 @@
 "use strict";
 "use client";
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider, VisuallyHidden } from "@chakra-ui/react";
+import { Hero } from "./components";
 
 export default function Home() {
-  return <main className="overflow-hidden"></main>;
+  return (
+    <Box as="main" overflow="hidden">
+      <Hero />
+    </Box>
+  );
 }
