@@ -42,7 +42,7 @@ const Hero = () => {
           />
         </Box>
         <Flex
-          title="hero_image-container"
+          // title="hero_image-container" NOTE
           flex={{ xl: "1.5" }}
           justify="flex-end"
           alignItems="end"
@@ -50,7 +50,7 @@ const Hero = () => {
           h={{ xl: "100vh" }}
         >
           <Box
-            title="hero_image"
+            // title="hero_image" NOTE
             position="relative"
             w={{ xl: "full" }}
             width="90%"
@@ -59,7 +59,24 @@ const Hero = () => {
             zIndex="0"
           >
             {" "}
-            <Image src={} />
+            <Image
+              src="/hero.png"
+              alt="hero"
+              layout="fill"
+              objectFit="contain"
+            />
+            <Box
+              // title="hero_image-overlay" NOTE
+              position="absolute"
+              top={{ xl: "-24" }}
+              right={{ xl: "-50%", base: "-25%" }}
+              bgImage="url('/hero-bg.png')"
+              bgRepeat="round"
+              zIndex="-10"
+              w="full"
+              h={{ xl: "100vh", base: "590px" }}
+              overflow="hidden" 
+            ></Box>
           </Box>
         </Flex>
       </Flex>
@@ -69,5 +86,5 @@ const Hero = () => {
 
 export default Hero;
 
-// NOTE relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
+// NOTE absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
 //

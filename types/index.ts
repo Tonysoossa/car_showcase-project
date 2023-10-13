@@ -5,4 +5,5 @@ export interface CustomButtonProps extends ButtonProps {
   title: string;
   containerStyles?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
+  btnType?: "button" | "submit";
 }
