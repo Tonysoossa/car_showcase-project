@@ -5,8 +5,8 @@ import { Box, Button, ButtonProps, Text } from "@chakra-ui/react";
 
 export const CustomButton = ({
   title,
-  containerStyles,
   handleClick,
+  containerStyles,
   btnType,
   ...rest
 }: CustomButtonProps) => {
@@ -14,10 +14,19 @@ export const CustomButton = ({
     <Button
       onClick={handleClick}
       type={btnType || "button"}
-      className={` ${containerStyles}`}
+      className={`custom-btn ${containerStyles}`}
+      position="relative"
+      flexDirection="row"
+      justifyContent="center"
+      alignItems="center"
+      py="-3"
+      px="-6"
+      outline="none"
       {...rest}
     >
       <Text as="span">{title}</Text>
     </Button>
   );
 };
+
+// NOTE custom btn flex flex-row relative justify-center items-center py-3 px-6 outline-none;

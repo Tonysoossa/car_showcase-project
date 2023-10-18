@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Box, Flex, Spacer, Heading, Text } from "@chakra-ui/react";
 import { CustomButton } from "./CustomButton";
+import { extendTheme } from "@chakra-ui/react";
 
 const Hero = () => {
   const handleScroll = () => {};
@@ -38,14 +39,15 @@ const Hero = () => {
             fontStyle="white"
             rounded="full"
             mt="10"
+            padding="5"
             handleClick={handleScroll}
           />
         </Box>
         <Flex
           // title="hero_image-container" NOTE
-          flex={{ xl: "1.5" }}
+          flexGrow={{ xl: "1.5" }}
           justify="flex-end"
-          alignItems="end"
+          alignItems="flex-end"
           w="full"
           h={{ xl: "100vh" }}
         >
@@ -75,7 +77,7 @@ const Hero = () => {
               zIndex="-10"
               w="full"
               h={{ xl: "100vh", base: "590px" }}
-              overflow="hidden" 
+              overflow="hidden"
             ></Box>
           </Box>
         </Flex>
