@@ -16,7 +16,7 @@ const Hero = () => {
         maxW="1440px"
         mx="auto"
       >
-        <Box flexGrow="1" pt="36" px={{ sm: "16", base: "6" }}>
+        <Box flexGrow="1" pt="28" px={{ sm: "16", base: "6" }}>
           <Heading
             as="h1"
             fontSize={{ "2xl": "72px", sm: "64px", base: "50" }}
@@ -67,19 +67,19 @@ const Hero = () => {
               layout="fill"
               objectFit="contain"
             />
-            <Box
-              // title="hero_image-overlay" NOTE
-              position="absolute"
-              top={{ xl: "-24" }}
-              right={{ xl: "-50%", base: "-25%" }}
-              bgImage="url('/hero-bg.png')"
-              bgRepeat="round"
-              zIndex="-10"
-              w="full"
-              h={{ xl: "100vh", base: "590px" }}
-              overflow="hidden"
-            ></Box>
           </Box>
+          <Box
+            // title="hero_image-overlay" NOTE
+            position="absolute"
+            top={{ xl: "-24" }}
+            right={{ xl: "-50%", base: "-25%" }}
+            bgImage="url('/hero-bg.png')"
+            bgRepeat="round"
+            zIndex="-10"
+            w="full"
+            h={{ xl: "100vh", base: "590px" }}
+            overflow="hidden"
+          />
         </Flex>
       </Flex>
     </Box>

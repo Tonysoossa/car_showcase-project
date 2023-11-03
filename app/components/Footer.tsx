@@ -14,7 +14,8 @@ export const Footer = () => {
       flexDirection="column"
       textColor="blackAlpha.900"
       mt="5"
-      borderTop="#EDF2F7"
+      borderTop="1px"
+      borderTopColor="#EDF2F7"
     >
       <Flex
         flexDirection={{ md: "row", base: "column" }}
@@ -38,7 +39,7 @@ export const Footer = () => {
             height={18}
             className="object-contain"
           />
-          <Text textStyle="base" textColor="gray.700">
+          <Text textStyle="base" textColor="gray.700" fontSize="0.8rem">
             CarHub 2023 <br />
             All rights reserved &copy;{" "}
           </Text>
@@ -92,7 +93,7 @@ export const Footer = () => {
         px={{ sm: "16", base: "6" }}
         py="10"
       >
-        <Text marginBottom='2rem'>@2023 CarHub. All Rights Reserved</Text>
+        <Text marginBottom="2rem">@2023 CarHub. All Rights Reserved</Text>
         <Flex
           flexGrow="1"
           justifyContent={{ sm: "end", base: "center" }}
