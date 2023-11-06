@@ -22,6 +22,7 @@ export const SearchBar = () => {
       maxW={{ "3xl": "48rem" }}
       onSubmit={handleSearch}
       listStyleType={"none"}
+      mb='-4'
     >
       <Flex
         title="searchbar_item"

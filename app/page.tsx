@@ -30,11 +30,11 @@ export default function Home() {
             fontSize="2.25rem"
             lineHeight="2.5rem"
             fontWeight="extrabold"
-            mb="2"
+            mb="1"
           >
             Car Catalogue
           </Text>
-          <Text>Explore the cars you might like</Text>
+          <Text ml='2'>Explore the cars you might like</Text>
           <Box
             title="home_filters"
             display="flex"
@@ -53,7 +53,8 @@ export default function Home() {
               justifyContent="flex-start"
               alignItems="center"
               flexWrap="wrap"
-              gap="2"
+              gap="4"
+              ml='1rem'
             >
               <CustomFilter title="fuel" />
               <CustomFilter title="year" />

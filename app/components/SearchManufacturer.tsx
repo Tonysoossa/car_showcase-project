@@ -12,6 +12,9 @@ import {
   Text,
   Collapse,
   transition,
+  background,
+  color,
+  BoxProps,
 } from "@chakra-ui/react";
 import {
   Menu,
@@ -24,6 +27,7 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import { Combobox, Transition } from "@headlessui/react";
+import { relative } from "path";
 
 export const SearchManufacturer = ({
   manufacturer,
@@ -41,8 +45,13 @@ export const SearchManufacturer = ({
             .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
 
+  const hoverBg = {
+    background: "#42A5F5",
+  };
+
   return (
     <Flex
+      position="relative"
       title="search-manufacturer"
       flexGrow="1"
       maxW={{ sm: "full" }}
@@ -76,21 +85,38 @@ export const SearchManufacturer = ({
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <Transition
-            // as={Collapse}
-            leave="transition ease-in duration-100"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            afterLeave={() => setQuery("")}
-          >
-            <Box as={Combobox.Option}>
-              {filteredManufacturers.length === 0 && query !== "" ? (
+
+          <Box as={Combobox.Options} ml="4.5rem">
+            {filteredManufacturers.length === 0 && query !== "" ? (
+              <Flex
+                as={Combobox.Option}
+                title="search-manufacturer__option"
+                value={query}
+                mt="1"
+                ml="14"
+                maxH="60"
+                w="full"
+                overflow="auto"
+                rounded="md"
+                bg="white"
+                py="1"
+                shadow="lg"
+                ring="1"
+                ringColor="black"
+                ringOffset="opacity-5"
+                outline={{ focus: "none" }}
+                textStyle={{ sm: "24rem" }}
+              >
+                Create "{query}"
+              </Flex>
+            ) : (
+              filteredManufacturers.map((item) => (
                 <Flex
                   as={Combobox.Option}
+                  key={item}
+                  value={item}
                   title="search-manufacturer__option"
-                  value={query}
                   mt="1"
-                  ml="14"
                   maxH="60"
                   w="full"
                   overflow="auto"
@@ -103,37 +129,13 @@ export const SearchManufacturer = ({
                   ringOffset="opacity-5"
                   outline={{ focus: "none" }}
                   textStyle={{ sm: "24rem" }}
+                  _hover={hoverBg}
                 >
-                  Create "{query}"
+                  {item}
                 </Flex>
-              ) : (
-                filteredManufacturers.map((item) => (
-                  <Flex
-                    as={Combobox.Option}
-                    key={item}
-                    value={item}
-                    title="search-manufacturer__option"
-                    mt="1"
-                    ml="4.5rem"
-                    maxH="60"
-                    w="full"
-                    overflow="auto"
-                    rounded="md"
-                    bg="white"
-                    py="1"
-                    shadow="lg"
-                    ring="1"
-                    ringColor="black"
-                    ringOffset="opacity-5"
-                    outline={{ focus: "none" }}
-                    textStyle={{ sm: "24rem" }}
-                  >
-                    {item}
-                  </Flex>
-                ))
-              )}
-            </Box>
-          </Transition>
+              ))
+            )}
+          </Box>
         </Box>
       </Combobox>
     </Flex>
