@@ -19,19 +19,19 @@ export const Navbar = () => {
           py="4"
         >
           {/* NOTE "max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4" */}
-            <Image
-              src="/logo.svg"
-              alt="Car hub logo"
-              width={118}
-              height={18}
-              className="object-contain"
-              color="white"
-            />
+          <Image
+            src="/logo.svg"
+            alt="Car hub logo"
+            width={118}
+            height={18}
+            className="object-contain"
+            color="white"
+          />
           <CustomButton
             title="Sign In"
             btnType="button"
             rounded="full"
-            color="blue.400"
+            color="#1e88e5"
             bg="white"
             p="5"
           />

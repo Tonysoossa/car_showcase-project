@@ -35,7 +35,7 @@ const Hero = () => {
           </Text>
           <CustomButton
             title="Explore Cars"
-            bg="blue.400"
+            bg="#1e88e5"
             fontStyle="white"
             rounded="full"
             mt="10"

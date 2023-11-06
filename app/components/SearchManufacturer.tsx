@@ -46,7 +46,8 @@ export const SearchManufacturer = ({
         );
 
   const hoverBg = {
-    background: "#42A5F5",
+    background: "#1e88e5",
+    color: "#ffffff",
   };
 
   return (
@@ -87,13 +88,13 @@ export const SearchManufacturer = ({
           />
 
           <Box as={Combobox.Options} ml="4.5rem">
-            {filteredManufacturers.length === 0 && query !== "" ? (
+            {filteredManufacturers.map((item) => (
               <Flex
                 as={Combobox.Option}
+                key={item}
+                value={item}
                 title="search-manufacturer__option"
-                value={query}
                 mt="1"
-                ml="14"
                 maxH="60"
                 w="full"
                 overflow="auto"
@@ -106,35 +107,11 @@ export const SearchManufacturer = ({
                 ringOffset="opacity-5"
                 outline={{ focus: "none" }}
                 textStyle={{ sm: "24rem" }}
+                _hover={hoverBg}
               >
-                Create "{query}"
+                {item}
               </Flex>
-            ) : (
-              filteredManufacturers.map((item) => (
-                <Flex
-                  as={Combobox.Option}
-                  key={item}
-                  value={item}
-                  title="search-manufacturer__option"
-                  mt="1"
-                  maxH="60"
-                  w="full"
-                  overflow="auto"
-                  rounded="md"
-                  bg="white"
-                  py="1"
-                  shadow="lg"
-                  ring="1"
-                  ringColor="black"
-                  ringOffset="opacity-5"
-                  outline={{ focus: "none" }}
-                  textStyle={{ sm: "24rem" }}
-                  _hover={hoverBg}
-                >
-                  {item}
-                </Flex>
-              ))
-            )}
+            ))}
           </Box>
         </Box>
       </Combobox>
