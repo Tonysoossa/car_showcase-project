@@ -22,7 +22,7 @@ export const SearchBar = () => {
       maxW={{ "3xl": "48rem" }}
       onSubmit={handleSearch}
       listStyleType={"none"}
-      mb='-4'
+      mb="-4"
     >
       <Flex
         title="searchbar_item"
@@ -32,9 +32,9 @@ export const SearchBar = () => {
         alignItems="center"
         position="relative"
       >
-        <SearchManufacturer
+     <SearchManufacturer
           manufacturer={manufacturer}
-          setManufacturer={manufacturer}
+          setManufacturer={setManufacturer}
         />
       </Flex>
     </Flex>

@@ -45,11 +45,6 @@ export const SearchManufacturer = ({
             .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
 
-  const hoverBg = {
-    background: "#1e88e5",
-    color: "#ffffff",
-  };
-
   return (
     <Flex
       position="relative"
@@ -59,7 +54,7 @@ export const SearchManufacturer = ({
       justifyContent="flex-start"
       alignItems="center"
     >
-      <Combobox>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <Box as={Combobox.Button} position="relative" w="full">
           <Button position="absolute" top="3.5" h="12" p="4" roundedLeft="full">
             <Box pt="0.8">
@@ -107,7 +102,13 @@ export const SearchManufacturer = ({
                 ringOffset="opacity-5"
                 outline={{ focus: "none" }}
                 textStyle={{ sm: "24rem" }}
-                _hover={hoverBg}
+                _hover={{
+                  w: "8rem",
+                  justifyContent: "center",
+                  background: "#1e88e5",
+                  color: "#f8f9fa",
+                  textDecoration: "underline",
+                }}
               >
                 {item}
               </Flex>
