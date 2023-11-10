@@ -25,7 +25,7 @@ export default async function Home() {
     <Box as="main" overflow="hidden">
       <Hero />
 
-      <Box mt="12" px="16" py="16" id="discover">
+      <Box mt="12" px="16" py="8" id="discover">
         <Flex
           flexDirection="column"
           alignItems="flex-start"
@@ -78,8 +78,8 @@ export default async function Home() {
                 gap="8"
                 pt="14"
               >
-                {allCars?.map((car) => ( 
-                  <CarCard car={car} />
+                {allCars?.map((car) => (
+                  <CarCard  car={car} />
                 ))}
               </Grid>
             </Box>

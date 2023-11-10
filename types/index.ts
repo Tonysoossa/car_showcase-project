@@ -2,7 +2,7 @@ import { ButtonProps } from "@chakra-ui/react";
 import { MouseEventHandler } from "react";
 
 export interface CustomButtonProps extends ButtonProps {
-  title: string;
+  title?: string;
   containerStyles?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   btnType?: "button" | "submit";
@@ -26,7 +26,7 @@ export interface CarProps {
   drive: string;
   fuel_type: string;
   highway_mpg: number;
-  make: string; 
+  make: string;
   model: string;
   transmission: string;
   year: number;

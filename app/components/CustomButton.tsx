@@ -22,6 +22,7 @@ export const CustomButton = ({
       py="-3"
       px="-6"
       outline="none"
+      transition="all ease 350ms"
       {...rest}
     >
       <Text as="span">{title}</Text>

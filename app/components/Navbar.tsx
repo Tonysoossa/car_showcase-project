@@ -8,7 +8,6 @@ export const Navbar = () => {
   return (
     <Box>
       <Heading w="full" flex="absolute" zIndex="10">
-        {/* NOTE "w-full absolute z-10 " */}
         <Flex
           as="nav"
           justify="space-between"
@@ -18,7 +17,6 @@ export const Navbar = () => {
           px={{ sm: "16", base: "6px" }}
           py="4"
         >
-          {/* NOTE "max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4" */}
           <Image
             src="/logo.svg"
             alt="Car hub logo"

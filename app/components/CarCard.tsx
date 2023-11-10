@@ -1,12 +1,12 @@
-// "use client"
 "use strict";
+// "use client";
 import { useState } from "react";
 import Image from "next/image";
+import rightArrow from "public/right-arrow.svg";
 import { CarProps } from "@/types";
-import { CustomButton } from ".";
+import { CustomButton } from "./CustomButton";
 import { calculateCarRent } from "@/utils";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import { start } from "repl";
+import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 
 interface CarCardProps {
   car: CarProps;
@@ -20,21 +20,22 @@ export const CarCard = ({ car }: CarCardProps) => {
   return (
     <Flex
       as="div"
-      title="car-card group"
+      title="car-card"
+      role="group"
       flexGrow="1"
       flexDirection="column"
       p="16"
-      pt='28px'
+      pt="28px"
       justifyContent="center"
       alignItems="flex-start"
-      _hover={{ bg: "#1e88e5" }}
+      _hover={{ bg: "#42a5f5" }}
+      transition="all ease 350ms"
       rounded="3xl"
-      // bg="#f8f9fa"
       shadow={{ base: "md" }}
       boxShadow={"xl"}
       bg="white"
+      pb="28px"
     >
-      {/*  hover:bg-white hover:shadow-md rounded-3xl*/}
       <Box
         as="div"
         title="car-card_content"
@@ -48,9 +49,9 @@ export const CarCard = ({ car }: CarCardProps) => {
           as="h2"
           title="car-card__content-title"
           ml="-10"
-          mb='-14px'
-          fontSize="[22px]"
-          lineHeight="[26px]"
+          mb="-14px"
+          fontSize="22px"
+          lineHeight="26px"
           fontWeight="bold"
           textTransform="capitalize"
         >
@@ -64,6 +65,8 @@ export const CarCard = ({ car }: CarCardProps) => {
         mt="6"
         fontSize="24px"
         fontWeight="extrabold"
+        visibility="hidden"
+        _groupHover={{ visibility: "visible" }}
       >
         <Box
           as="span"
@@ -71,6 +74,8 @@ export const CarCard = ({ car }: CarCardProps) => {
           alignItems="flex-start"
           fontSize="14px"
           fontWeight="semibold"
+          visibility="hidden"
+          _groupHover={{ visibility: "visible" }}
         >
           $
         </Box>
@@ -81,6 +86,8 @@ export const CarCard = ({ car }: CarCardProps) => {
           alignItems="flex-end"
           fontSize="14px"
           fontWeight="medium"
+          visibility="hidden"
+          _groupHover={{ visibility: "visible" }}
         >
           /day
         </Box>
@@ -91,8 +98,7 @@ export const CarCard = ({ car }: CarCardProps) => {
         w="full"
         h="40"
         my="3"
-        // p='8'
-        m='12'
+        m="12"
         objectPosition="contain"
       >
         <Image
@@ -102,6 +108,79 @@ export const CarCard = ({ car }: CarCardProps) => {
           height={50}
           objectFit="contain"
         />
+      </Box>
+      <Box display="flex" flexGrow="1" position="relative" w="full" mt="2">
+        <Box
+          display="flex"
+          flexGrow="1"
+          w="full"
+          justifyContent="space-between"
+          color="gray"
+          pt="5"
+          pl="4"
+          pr="4"
+        >
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            gap="2"
+          >
+            <Image
+              src="/steering-wheel.svg"
+              width={20}
+              height={20}
+              alt="steering wheel"
+            />
+            <Text fontSize="16px">
+              {transmission === "a" ? "Auto" : "Manual"}
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            gap="2"
+          >
+            <Image src="/tire.svg" width={20} height={20} alt="tire" />
+            <Text fontSize="16px">{drive.toUpperCase()}</Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            gap="2"
+          >
+            <Image src="/gas.svg" width={20} height={20} alt="gas" />
+            <Text fontSize="16px">{city_mpg} MPG </Text>
+          </Box>
+        </Box>
+        <Flex
+          position="absolute"
+          display="none"
+          _groupHover={{ display: "flex" }}
+          w="full"
+          zIndex="10"
+          bottom="0"
+          pt="28px"
+        >
+          <CustomButton
+            title="View More"
+            w="full"
+            py="30px"
+            rounded="full"
+            bg="#42a5f5"
+            _hover={{ bg: "#1e88e5" }}
+            boxShadow="dark-lg"
+            color="white"
+            fontSize="18px"
+            fontWeight="bold"
+            rightIcon={<Icon as={rightArrow} />} //NOTE Import chakra icon
+          />
+        </Flex>
       </Box>
     </Flex>
   );

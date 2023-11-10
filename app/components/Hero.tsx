@@ -16,7 +16,7 @@ const Hero = () => {
         maxW="1440px"
         mx="auto"
       >
-        <Box flexGrow="1" pt="28" px={{ sm: "16", base: "6" }}>
+        <Box flexGrow="1" pt="3rem" px={{ sm: "16", base: "6" }}>
           <Heading
             as="h1"
             fontSize={{ "2xl": "72px", sm: "64px", base: "50" }}
@@ -28,7 +28,7 @@ const Hero = () => {
             fontSize={{ base: "27px" }}
             color="gray.900"
             fontWeight="light"
-            mt="5"
+            mt="7"
           >
             Streamline your car rental experience with our effortless booking
             process.
@@ -55,14 +55,14 @@ const Hero = () => {
             // title="hero_image" NOTE
             position="relative"
             w={{ xl: "full" }}
-            width="90%"
+            width="60%"
+            mb='13px'
             h={{ xl: "full" }}
             height="590px"
             zIndex="0"
           >
-            {" "}
             <Image
-              src="/hero.png"
+              src="/png_thumbs.png"
               alt="hero"
               layout="fill"
               objectFit="contain"
@@ -79,6 +79,7 @@ const Hero = () => {
             w="full"
             h={{ xl: "100vh", base: "590px" }}
             overflow="hidden"
+            transform={'rotate(1.8deg)'}
           />
         </Flex>
       </Flex>
