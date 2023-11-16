@@ -79,7 +79,7 @@ export default async function Home() {
                 pt="14"
               >
                 {allCars?.map((car) => (
-                  <CarCard  car={car} />
+                  <CarCard key={car.model} car={car} />
                 ))}
               </Grid>
             </Box>

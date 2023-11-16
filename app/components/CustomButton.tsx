@@ -2,17 +2,18 @@ import Image from "next/image";
 
 import { CustomButtonProps } from "@/types";
 import { Box, Button, ButtonProps, Text } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 export const CustomButton = ({
   title,
   handleClick,
   containerStyles,
   btnType,
+  textStyles,
   ...rest
 }: CustomButtonProps) => {
   return (
     <Button
-      onClick={handleClick}
       type={btnType || "button"}
       className={`custom-btn ${containerStyles}`}
       position="relative"
@@ -23,9 +24,12 @@ export const CustomButton = ({
       px="-6"
       outline="none"
       transition="all ease 350ms"
+      onClick={handleClick}
       {...rest}
     >
-      <Text as="span">{title}</Text>
+      <Text as="span" flexGrow="1">
+        {title}
+      </Text>
     </Button>
   );
 };

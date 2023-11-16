@@ -1,12 +1,14 @@
 "use strict";
-// "use client";
+"use client";
 import { useState } from "react";
 import Image from "next/image";
-import rightArrow from "public/right-arrow.svg";
+// import rightArrow from "public/right-arrow.svg";
 import { CarProps } from "@/types";
 import { CustomButton } from "./CustomButton";
 import { calculateCarRent } from "@/utils";
-import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { AddIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { CarDetails } from "./CarDetails";
 
 interface CarCardProps {
   car: CarProps;
@@ -14,6 +16,8 @@ interface CarCardProps {
 
 export const CarCard = ({ car }: CarCardProps) => {
   const { city_mpg, year, make, model, transmission, drive } = car;
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const carRent = calculateCarRent(city_mpg, year);
 
@@ -178,10 +182,28 @@ export const CarCard = ({ car }: CarCardProps) => {
             color="white"
             fontSize="18px"
             fontWeight="bold"
-            rightIcon={<Icon as={rightArrow} />} //NOTE Import chakra icon
-          />
+            handleClick={() => setIsOpen(true)}
+          ></CustomButton>
+
+          <Button
+            display="flex"
+            position="absolute"
+            boxSize="30px"
+            mt="15px"
+            ml="380px"
+            bg="transparent"
+            _hover={{ bg: "#ced4da", opacity: "90%" }}
+          >
+            <ArrowForwardIcon w={4} h={4} color="black" />
+          </Button>
         </Flex>
       </Box>
+      <CarDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        car={car}
+      />
     </Flex>
   );
 };
+// hpukeylsxbsgrxxd
