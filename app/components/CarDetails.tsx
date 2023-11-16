@@ -5,6 +5,7 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CarProps } from "@/types";
 import Image from "next/image";
+import { generateCarImageUrl } from "@/utils";
 
 interface CarDetailsProps {
   isOpen: boolean;
@@ -48,7 +49,13 @@ export const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel>
-                  <Box bg="#ced4da" p="5" shadow="2xl" boxShadow='dark-lg' rounded="2xl">
+                  <Box
+                    bg="#ced4da"
+                    p="5"
+                    shadow="2xl"
+                    boxShadow="dark-lg"
+                    rounded="2xl"
+                  >
                     <Box
                       display="flex"
                       flexGrow="1"
@@ -70,7 +77,7 @@ export const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       roundedBottom="2xl"
                     >
                       <Image
-                        src="/hero.png"
+                        src={generateCarImageUrl(car)}
                         alt="car model"
                         fill
                         priority
@@ -79,7 +86,7 @@ export const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       <Button
                         display="flex"
                         ml="360px"
-                        mr='10px'
+                        mr="10px"
                         mt="6px"
                         size="sm"
                         type="button"
@@ -107,7 +114,7 @@ export const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     <Box display="flex" bg="#ced4da" pt="10" pb="5" mt="-5">
                       <Box flexGrow="1" position="relative" w="full" h="24">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImageUrl(car, "29")}
                           alt="car model"
                           objectFit="contain"
                           fill
@@ -117,7 +124,7 @@ export const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
 
                       <Box flexGrow="1" position="relative" w="full" h="24">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImageUrl(car, "33")}
                           alt="car model"
                           objectFit="contain"
                           fill
@@ -127,7 +134,7 @@ export const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
 
                       <Box flexGrow="1" position="relative" w="full" h="24">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImageUrl(car, "13")}
                           alt="car model"
                           objectFit="contain"
                           fill
