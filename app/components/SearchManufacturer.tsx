@@ -16,18 +16,10 @@ import {
   color,
   BoxProps,
 } from "@chakra-ui/react";
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-} from "@chakra-ui/react";
+import { ArrowDownIcon } from "@chakra-ui/icons";
 import { Combobox, Transition } from "@headlessui/react";
 import { relative } from "path";
+import { off } from "process";
 
 export const SearchManufacturer = ({
   manufacturer,
@@ -42,8 +34,10 @@ export const SearchManufacturer = ({
           item
             .toLowerCase()
             .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, ""))
+            .startsWith(query.toLowerCase().replace(/\s+/g, ""))
         );
+
+  const [isScroll, setIsScroll] = useState(false);
 
   return (
     <Flex
@@ -51,6 +45,7 @@ export const SearchManufacturer = ({
       title="search-manufacturer"
       flexGrow="1"
       maxW={{ sm: "full" }}
+      flexDirection={{ sm: "column", base: "row" }}
       justifyContent="flex-start"
       alignItems="center"
     >
@@ -81,14 +76,36 @@ export const SearchManufacturer = ({
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
           />
-
-          <Box as={Combobox.Options} ml="4.5rem">
+          <Box
+            as={Combobox.Options}
+            ml="8"
+            position="absolute"
+            bg="white"
+            maxH="15rem"
+            boxShadow="dark-lg"
+            pl="10"
+            rounded="lg"
+            overflowY="scroll"
+            onScroll={() => {
+              setIsScroll(true);
+            }}
+            
+            width="22rem"
+            zIndex="900"
+            sx={{ "&::-webkit-scrollbar": { display: "none" } }}
+          >
+            <ArrowDownIcon
+              display={isScroll ? "none" : "flex"}
+              position="absolute"
+              ml="18rem"
+              mt="13.5rem"
+            />
             {filteredManufacturers.map((item) => (
               <Flex
                 as={Combobox.Option}
+                title="search-manufacturer__option"
                 key={item}
                 value={item}
-                title="search-manufacturer__option"
                 mt="1"
                 maxH="60"
                 w="full"

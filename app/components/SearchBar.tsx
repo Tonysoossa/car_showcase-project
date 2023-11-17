@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import { SearchManufacturer } from ".";
 import Image from "next/image";
+import { Combobox } from "@headlessui/react";
 
 const SearchButton = (props: ButtonProps) => {
   return (
@@ -34,51 +35,53 @@ export const SearchBar = () => {
   return (
     <Flex
       as="form"
+      position="relative"
       title="searchbar"
       alignItems="center"
       justifyContent="flex-start"
       flexGrow="1"
       w="full"
-      position="relative"
-      flexDirection={{ sm: "column", base: "row" }}
       gap={{ sm: "4", base: "1" }}
       maxW={{ "3xl": "48rem" }}
       onSubmit={handleSearch}
       listStyleType={"none"}
       mb="-4"
+      autoComplete="off"
     >
       <Flex
         title="searchbar_item"
+        flexDirection={{ md: "row", base: "column" }}
+        // flexDirection="column"
         flex="1"
         w={{ sm: "full", base: "100%" }}
-        justifyContent="flex-start"
-        alignItems="center"
         position="relative"
       >
         <SearchManufacturer
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
         />
-
-        <SearchButton mt="10px" display={{ sm: "hidden" }} />
         <Flex
           flexGrow="1"
-          pt="1"
           maxW={{ base: "100%", sm: "full" }}
-          justifyContent="flex-start"
+          justifyContent="space-between"
           alignItems="center"
           position="relative"
         >
-          <Box position="absolute" w="20px" h="20px">
+          <Box position="absolute" w="20px" h="20px" ml="4" mt="2">
             <Image
               src="/model-icon.png"
               alt="car model"
-              width={25}
-              height={25}
+              width={35}
+              height={35}
             />
           </Box>
           <Input
             type="text"
+            position="relative"
+            top="3"
+            h="12"
+            pl="4rem"
+            mb="4"
             rounded="full"
             name="model"
             value={model}
@@ -86,9 +89,9 @@ export const SearchBar = () => {
             placeholder="Tiguan"
             flex="1"
             w={{ sm: "full", base: "100%" }}
-            justifyContent="flex-start"
+            justifyContent="space-between"
             alignItems="center"
-            position="relative"
+            cursor="pointer"
           ></Input>
         </Flex>
       </Flex>
