@@ -15,8 +15,10 @@ import {
   background,
   color,
   BoxProps,
+  InputGroup,
+  InputRightElement,
 } from "@chakra-ui/react";
-import { ArrowDownIcon } from "@chakra-ui/icons";
+import { ArrowDownIcon, Search2Icon } from "@chakra-ui/icons";
 import { Combobox, Transition } from "@headlessui/react";
 import { relative } from "path";
 import { off } from "process";
@@ -51,31 +53,41 @@ export const SearchManufacturer = ({
     >
       <Combobox value={manufacturer} onChange={setManufacturer}>
         <Box as={Combobox.Button} position="relative" w="full">
-          <Button position="absolute" top="3.5" h="12" p="4" roundedLeft="full">
-            <Box pt="0.8">
-              <Image
-                src="car-logo_toyota.svg"
-                alt="Car logo toyota"
-                width={28}
-                height={28}
-              />
-            </Box>
-          </Button>
-          <Input
-            as={Combobox.Input}
-            top="3.5"
-            w="full"
-            h="12"
-            p="4"
-            pl="4.5rem"
-            mb="5"
-            rounded="full"
-            outline="none"
-            cursor="pointer"
-            placeholder="Toyota"
-            displayValue={(manufacturer: string) => manufacturer}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+          <Box position="absolute" top="2" h="12" p="4">
+            <Image
+              src="car-logo_toyota.svg"
+              alt="Car logo toyota"
+              width={28}
+              height={28}
+            />
+          </Box>
+          <InputGroup>
+            <Input
+              as={Combobox.Input}
+              top="3.5"
+              w="full"
+              h="12"
+              p="4"
+              pl="4.5rem"
+              mb="5"
+              rounded="full"
+              outline="none"
+              cursor="pointer"
+              placeholder="Toyota"
+              displayValue={(manufacturer: string) => manufacturer}
+              onChange={(e) => setQuery(e.target.value)}
+            ></Input>
+            <InputRightElement
+              top="1.14rem"
+              pr="1px"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Button roundedRight="full" h="2.9rem">
+                <Search2Icon />
+              </Button>
+            </InputRightElement>
+          </InputGroup>
           <Box
             as={Combobox.Options}
             ml="8"
@@ -89,7 +101,6 @@ export const SearchManufacturer = ({
             onScroll={() => {
               setIsScroll(true);
             }}
-            
             width="22rem"
             zIndex="900"
             sx={{ "&::-webkit-scrollbar": { display: "none" } }}
