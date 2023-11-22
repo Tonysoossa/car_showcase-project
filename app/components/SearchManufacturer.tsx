@@ -28,6 +28,7 @@ export const SearchManufacturer = ({
   setManufacturer,
 }: SearchManufacturerPorps) => {
   const [query, setQuery] = useState("");
+  const [isScroll, setIsScroll] = useState(false);
 
   const filteredManufacturers =
     query === ""
@@ -39,10 +40,9 @@ export const SearchManufacturer = ({
             .startsWith(query.toLowerCase().replace(/\s+/g, ""))
         );
 
-  const [isScroll, setIsScroll] = useState(false);
-
   return (
     <Flex
+      as="form"
       position="relative"
       title="search-manufacturer"
       flexGrow="1"
@@ -50,6 +50,8 @@ export const SearchManufacturer = ({
       flexDirection={{ sm: "column", base: "row" }}
       justifyContent="flex-start"
       alignItems="center"
+      listStyleType={"none"}
+      autoComplete="off"
     >
       <Combobox value={manufacturer} onChange={setManufacturer}>
         <Box as={Combobox.Button} position="relative" w="full">
@@ -61,33 +63,22 @@ export const SearchManufacturer = ({
               height={28}
             />
           </Box>
-          <InputGroup>
-            <Input
-              as={Combobox.Input}
-              top="3.5"
-              w="full"
-              h="12"
-              p="4"
-              pl="4.5rem"
-              mb="5"
-              rounded="full"
-              outline="none"
-              cursor="pointer"
-              placeholder="Toyota"
-              displayValue={(manufacturer: string) => manufacturer}
-              onChange={(e) => setQuery(e.target.value)}
-            ></Input>
-            <InputRightElement
-              top="1.14rem"
-              pr="1px"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Button roundedRight="full" h="2.9rem">
-                <Search2Icon />
-              </Button>
-            </InputRightElement>
-          </InputGroup>
+
+          <Input
+            as={Combobox.Input}
+            top="3.5"
+            w="full"
+            h="12"
+            p="4"
+            pl="4.5rem"
+            mb="5"
+            rounded="full"
+            outline="none"
+            cursor="pointer"
+            placeholder="Toyota"
+            displayValue={(manufacturer: string) => manufacturer}
+            onChange={(e) => setQuery(e.target.value)}
+          />
           <Box
             as={Combobox.Options}
             ml="8"
