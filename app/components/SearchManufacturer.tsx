@@ -17,9 +17,10 @@ import {
   BoxProps,
   InputGroup,
   InputRightElement,
+  Hide,
 } from "@chakra-ui/react";
 import { ArrowDownIcon, Search2Icon } from "@chakra-ui/icons";
-import { Combobox, Transition } from "@headlessui/react";
+import { Combobox } from "@headlessui/react";
 import { relative } from "path";
 import { off } from "process";
 
@@ -55,21 +56,20 @@ export const SearchManufacturer = ({
     >
       <Combobox value={manufacturer} onChange={setManufacturer}>
         <Box as={Combobox.Button} position="relative" w="full">
-          <Box position="absolute" top="2" h="12" p="4">
+          <Box position="absolute" w="20px" h="20px" ml="4" mt="2" top="5">
             <Image
-              src="car-logo_toyota.svg"
-              alt="Car logo toyota"
-              width={28}
-              height={28}
+              src="/model-icon.png"
+              alt="car model"
+              width={35}
+              height={35}
             />
           </Box>
-
           <Input
             as={Combobox.Input}
+            type="text"
+            position="relative"
             top="3.5"
-            w="full"
             h="12"
-            p="4"
             pl="4.5rem"
             mb="5"
             rounded="full"
@@ -78,6 +78,7 @@ export const SearchManufacturer = ({
             placeholder="Toyota"
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
+            autoComplete="off"
           />
           <Box
             as={Combobox.Options}
@@ -138,3 +139,5 @@ export const SearchManufacturer = ({
     </Flex>
   );
 };
+
+//NOTE FIX scroll back to top after button submited

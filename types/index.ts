@@ -16,10 +16,6 @@ export interface SearchManufacturerPorps {
   setManufacturer: (manufacturer: string) => void;
 }
 
-export interface CustomFilterProps {
-  title: string;
-}
-
 export interface CarProps {
   city_mpg: number;
   class: string;
@@ -41,4 +37,14 @@ export interface FilterProps {
   fuel: string;
   limit: number;
   model: string;
+}
+
+export interface OptionsProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionsProps[];
 }

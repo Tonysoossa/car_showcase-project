@@ -1,57 +1,20 @@
 "use client";
 import { useRouter } from "next/navigation";
-import {
-  Box,
-  Button,
-  ButtonProps,
-  Center,
-  Flex,
-  Input,
-  InputGroup,
-  InputRightElement,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Input } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
-import React, { useState } from "react";
+import React, { FormEventHandler, useState } from "react";
 import { SearchManufacturer } from ".";
 import Image from "next/image";
-import { Combobox } from "@headlessui/react";
-
-const SearchButton = (props: ButtonProps) => {
-  return (
-    <Button type="submit" ml="-3" zIndex="10" {...props}>
-      <Image
-        src="/magnifying-glass.svg"
-        alt="magnifying glass"
-        width={40}
-        height={40}
-      />
-    </Button>
-  );
-};
 
 export const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
-  const [query, setQuery] = useState("");
   const router = useRouter();
 
-  const filteredModels =
-  query === ""
-    ? model
-    : model.filter((item) =>
-        item
-          .toLowerCase()
-          .replace(/\s+/g, "")
-          .startsWith(query.toLowerCase().replace(/\s+/g, ""))
-      );
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    // <HTMLFormElement> ?
+  const handleSearch: FormEventHandler = (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
-
-
-
-
 
     if (manufacturer === "" && model === "") {
       return alert("Please fill in the search bar");
@@ -122,14 +85,16 @@ export const SearchBar = () => {
           alignItems="center"
           position="relative"
         >
-          <Box position="absolute" w="20px" h="20px" ml="4" mt="2">
+            <Box position="absolute" top="3.5" h="12" p="4" opacity='65%'>
             <Image
-              src="/model-icon.png"
-              alt="car model"
-              width={35}
-              height={35}
+              src="/handwheel.png"
+              alt="Car logo toyota"
+              width={18}
+              height={18}
             />
           </Box>
+         
+
           <Input
             type="text"
             position="relative"
@@ -138,19 +103,16 @@ export const SearchBar = () => {
             pl="4rem"
             mb="4"
             rounded="full"
-            name="model"
-            value={model}
-            displayValue={(model: string) => model}
-            onChange={(e) => setModel(e.target.value)}
-            placeholder="Supra"
-            flex="1"
-            w={{ sm: "full", base: "100%" }}
-            justifyContent="space-between"
-            alignItems="center"
+            outline="none"
             cursor="pointer"
-            autoComplete="off"
+            placeholder="Supra"
+            onChange={(e) => setModel(e.target.value)}
+            value={model}
           />
+
+          {/* Search button NOTE  */}
           <Button
+            type="submit"
             display="flex"
             position="relative"
             ml="2"

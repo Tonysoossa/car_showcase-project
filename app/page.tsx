@@ -14,7 +14,8 @@ import {
   Text,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import { Hero, CustomFilter, SearchBar, CarCard } from "./components";
+import { Hero, CustomFilter, SearchBar, CarCard, SearchManufacturer } from "./components";
+import { fuels, yearsOfProduction } from "@/constants";
 
 export default async function Home({ searchParams }) {
   const allCars = await fetchCars({
@@ -60,6 +61,7 @@ export default async function Home({ searchParams }) {
             mt="3"
           >
             <SearchBar />
+            
 
             <Flex
               title="home__filter-container"
@@ -70,8 +72,8 @@ export default async function Home({ searchParams }) {
               gap="4"
               ml="1rem"
             >
-              <CustomFilter title="fuel" />
-              <CustomFilter title="year" />
+              <CustomFilter title="fuel" option={fuels} />
+              <CustomFilter title="year" option={yearsOfProduction} />
             </Flex>
           </Box>
           {!isDataEmpty ? (
