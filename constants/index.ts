@@ -1,3 +1,5 @@
+import { OptionsProps } from "@/types";
+
 export const manufacturers = [
   "Acura",
   "Alfa Romeo",
@@ -42,7 +44,7 @@ export const manufacturers = [
   "Volvo",
 ];
 
-export const yearsOfProduction = [
+export const yearsOfProduction: OptionsProps[] = [
   { title: "Year", value: "" },
   { title: "2015", value: "2015" },
   { title: "2016", value: "2016" },
