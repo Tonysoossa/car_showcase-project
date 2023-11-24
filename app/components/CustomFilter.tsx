@@ -15,12 +15,20 @@ import React, { useState, Fragment } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { updateSearchParams } from "@/utils";
 
 export const CustomFilter = ({ title, options }: CustomFilterProps) => {
+  const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
 
+  const handleUpdateParams = (e: { title: string; value: string }) => {
+    const newPathName = updateSearchParams(title, e.value.toLocaleLowerCase());
+
+    router.push(newPathName);
+  };
+
   return (
-    <Flex w="fit-content" maxW='48'>
+    <Flex w="fit-content" maxW="48">
       <Menu>
         {({ isOpen }) => (
           <>
@@ -36,9 +44,12 @@ export const CustomFilter = ({ title, options }: CustomFilterProps) => {
                 <MenuItem
                   key={el.value}
                   value={el.value}
-                  onClick={() => setSelected(el)}
-                  w='6rem'
-                  rounded='xl'
+                  onClick={() => {
+                    setSelected(el);
+                    handleUpdateParams(el);
+                  }}
+                  w="6rem"
+                  rounded="xl"
                   _hover={{
                     justifyContent: "center",
                     background: "#1e88e5",

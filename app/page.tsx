@@ -77,53 +77,53 @@ export default async function Home({ searchParams }) {
               gap="4"
               ml="1rem"
             >
-              <CustomFilter
-                title="Fuel"
-                options={fuels}
-              />
+              <CustomFilter title="Fuel" options={fuels} />
               <CustomFilter title="Year" options={yearsOfProduction} />
             </Flex>
           </Box>
-          {!isDataEmpty ? (
-            <Box as="section" pl="4">
-              <Grid
-                as="div"
-                title="home__cars-wrapper"
-                gridColumn={{ "2xl": "4", xl: "3", md: "2", base: "1" }}
-                w="full"
-                gap="8"
-                pt="14"
-              >
-                {allCars?.map((car) => (
-                  <CarCard key={car.model} car={car} />
-                ))}
-              </Grid>
-            </Box>
-          ) : (
-            <Box
-              as="div"
-              title="home__error-container"
-              display="flex"
-              flexDirection="column"
-              flexGrow="1"
-              justifyContent="center"
-              alignItems="center"
-              gap="2"
-              mt="16"
-            >
-              <Heading
-                as="h2"
-                color="black"
-                fontSize="1.25rem"
-                lineHeight="1.75rem"
-                fontWeight="bold"
-              >
-                Oops, no results
-              </Heading>
-              <Text>{allCars.message}</Text>
-            </Box>
-          )}
         </Flex>
+
+        {!isDataEmpty ? (
+          <Box as="section" pl="4" w="36rem">
+            <Flex
+              position="relative"
+              flexGrow="1"
+              flexDirection={{ sm: "column", xl: "row" }}
+              as="div"
+              title="home__cars-wrapper"
+              minW="full"
+              gap="8"
+              pt="14"
+            >
+              {allCars?.map((car) => (
+                <CarCard key={car.model} car={car} />
+              ))}
+            </Flex>
+          </Box>
+        ) : (
+          <Box
+            as="div"
+            title="home__error-container"
+            display="flex"
+            flexDirection="column"
+            flexGrow="1"
+            justifyContent="center"
+            alignItems="center"
+            gap="2"
+            mt="16"
+          >
+            <Heading
+              as="h2"
+              color="black"
+              fontSize="1.25rem"
+              lineHeight="1.75rem"
+              fontWeight="bold"
+            >
+              Oops, no results
+            </Heading>
+            <Text>{allCars.message}</Text>
+          </Box>
+        )}
       </Box>
     </Box>
   );
