@@ -8,14 +8,10 @@ import { CustomButton } from ".";
 import { group } from "console";
 import { updateSearchParams } from "@/utils";
 
-export const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
-  const router = useRouter();
-
+export const ShowMore = ({ pageNumber, isNext, setLimit }: ShowMoreProps) => {
   const handleNavigation = () => {
     const newLimit = (pageNumber + 1) * 10;
-    const newPahName = updateSearchParams("limit", `${newLimit}`);
-
-    router.push(newPahName);
+    setLimit(newLimit);
   };
 
   return (
@@ -30,7 +26,7 @@ export const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
           color="white"
           _hover={{ bg: "#42a5f5", color: "black" }}
           handleClick={handleNavigation}
-        ></CustomButton>
+        />
       )}
     </Flex>
   );

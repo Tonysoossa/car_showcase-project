@@ -2,50 +2,36 @@
 import { useRouter } from "next/navigation";
 import { Box, Button, Flex, Input } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
-import React, { FormEventHandler, useState } from "react";
+import React, {
+  Dispatch,
+  FormEventHandler,
+  SetStateAction,
+  useState,
+} from "react";
 import { SearchManufacturer } from ".";
 import Image from "next/image";
 
-export const SearchBar = () => {
-  const [manufacturer, setManufacturer] = useState("");
-  const [model, setModel] = useState("");
-  const router = useRouter();
+export const SearchBar = ({
+  setManufacturer,
+  setModel,
+}: {
+  setManufacturer: Dispatch<SetStateAction<any>>;
+  setModel: Dispatch<SetStateAction<any>>;
+}) => {
+  const [searchManufacturer, setSearchManufacturer] = useState("");
+  const [searchModel, setSearchModel] = useState("");
 
   const handleSearch: FormEventHandler = (
     e: React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
 
-    if (manufacturer === "" && model === "") {
+    if (searchManufacturer === "" && searchModel === "") {
       return alert("Please fill in the search bar");
     }
 
-    updateSearchParams(
-      model.toLocaleLowerCase(),
-      manufacturer.toLocaleLowerCase()
-    );
-  };
-
-  const updateSearchParams = (model: string, manufacturer: string) => {
-    const searchParams = new URLSearchParams(window.location.search);
-
-    if (model) {
-      searchParams.set("model", model);
-    } else {
-      searchParams.delete("model");
-    }
-
-    if (manufacturer) {
-      searchParams.set("manufacturer", manufacturer);
-    } else {
-      searchParams.delete("manufacturer");
-    }
-
-    const newPathname = `${
-      window.location.pathname
-    }?${searchParams.toString()}`;
-
-    router.push(newPathname);
+    setModel(searchModel);
+    setManufacturer(searchManufacturer);
   };
 
   return (
@@ -75,8 +61,8 @@ export const SearchBar = () => {
         position="relative"
       >
         <SearchManufacturer
-          manufacturer={manufacturer}
-          setManufacturer={setManufacturer}
+          selected={searchManufacturer}
+          setSelected={setSearchManufacturer}
         />
         <Flex
           flexGrow="1"
@@ -85,7 +71,7 @@ export const SearchBar = () => {
           alignItems="center"
           position="relative"
         >
-            <Box position="absolute" top="3.5" h="12" p="4" opacity='65%'>
+          <Box position="absolute" top="3.5" h="12" p="4" opacity="65%">
             <Image
               src="/handwheel.png"
               alt="Car logo toyota"
@@ -93,7 +79,6 @@ export const SearchBar = () => {
               height={18}
             />
           </Box>
-         
 
           <Input
             type="text"
@@ -106,10 +91,9 @@ export const SearchBar = () => {
             outline="none"
             cursor="pointer"
             placeholder="Supra"
-            onChange={(e) => setModel(e.target.value)}
-            value={model}
+            onChange={(e) => setSearchModel(e.target.value)}
+            value={searchModel}
           />
-
           {/* Search button NOTE  */}
           <Button
             type="submit"
@@ -128,5 +112,3 @@ export const SearchBar = () => {
     </Flex>
   );
 };
-
-// NOTE  flex-1 max-sm:w-full flex justify-start items-center relative;

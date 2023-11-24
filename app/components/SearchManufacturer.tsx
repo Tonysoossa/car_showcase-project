@@ -25,8 +25,8 @@ import { relative } from "path";
 import { off } from "process";
 
 export const SearchManufacturer = ({
-  manufacturer,
-  setManufacturer,
+  selected,
+  setSelected,
 }: SearchManufacturerPorps) => {
   const [query, setQuery] = useState("");
   const [isScroll, setIsScroll] = useState(false);
@@ -54,7 +54,7 @@ export const SearchManufacturer = ({
       listStyleType={"none"}
       autoComplete="off"
     >
-      <Combobox value={manufacturer} onChange={setManufacturer}>
+      <Combobox value={selected} onChange={setSelected}>
         <Box as={Combobox.Button} position="relative" w="full">
           <Box position="absolute" w="20px" h="20px" ml="4" mt="2" top="5">
             <Image

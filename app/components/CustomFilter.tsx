@@ -17,18 +17,16 @@ import { useRouter } from "next/navigation";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { updateSearchParams } from "@/utils";
 
-export const CustomFilter = ({ title, options }: CustomFilterProps) => {
+export const CustomFilter = ({
+  title,
+  options,
+  setFilter,
+}: CustomFilterProps) => {
   const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
 
-  const handleUpdateParams = (e: { title: string; value: string }) => {
-    const newPathName = updateSearchParams(title, e.value.toLocaleLowerCase());
-
-    router.push(newPathName);
-  };
-
   return (
-    <Flex w="fit-content" maxW="48" pl={{md:'3rem', sm:'2rem'}}>
+    <Flex w="fit-content" maxW="48" pl={{ md: "3rem", sm: "2rem" }}>
       <Menu>
         {({ isOpen }) => (
           <>
@@ -46,7 +44,7 @@ export const CustomFilter = ({ title, options }: CustomFilterProps) => {
                   value={el.value}
                   onClick={() => {
                     setSelected(el);
-                    handleUpdateParams(el);
+                    setFilter(el.value);
                   }}
                   w="6rem"
                   rounded="xl"

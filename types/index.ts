@@ -1,5 +1,5 @@
 import { ButtonProps } from "@chakra-ui/react";
-import { MouseEventHandler } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 
 export interface CustomButtonProps extends ButtonProps {
   title?: string;
@@ -12,8 +12,10 @@ export interface CustomButtonProps extends ButtonProps {
 }
 
 export interface SearchManufacturerPorps {
-  manufacturer: string;
-  setManufacturer: (manufacturer: string) => void;
+  selected: string
+  setSelected: React.Dispatch<React.SetStateAction<string>>
+  manufacturer?: string;
+  setManufacturer?: (manufacturer: string) => void;
 }
 
 export interface CarProps {
@@ -47,9 +49,11 @@ export interface OptionsProps {
 export interface CustomFilterProps {
   title: string;
   options: OptionsProps[];
+  setFilter: Dispatch<SetStateAction<any>>;
 }
 
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  setLimit: Dispatch<SetStateAction<number>>
 }
