@@ -117,12 +117,12 @@ export const CarCard = ({ car }: CarCardProps) => {
         <Box
           display="flex"
           flexGrow="1"
-          w="full"
           justifyContent="space-between"
           color="gray"
           pt="5"
           pl="4"
           pr="4"
+          w="full"
         >
           <Box
             display="flex"

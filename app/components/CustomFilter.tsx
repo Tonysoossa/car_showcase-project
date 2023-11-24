@@ -28,7 +28,7 @@ export const CustomFilter = ({ title, options }: CustomFilterProps) => {
   };
 
   return (
-    <Flex w="fit-content" maxW="48">
+    <Flex w="fit-content" maxW="48" pl={{md:'3rem', sm:'2rem'}}>
       <Menu>
         {({ isOpen }) => (
           <>
