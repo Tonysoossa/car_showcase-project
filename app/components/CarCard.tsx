@@ -2,12 +2,11 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-// import rightArrow from "public/right-arrow.svg";
 import { CarProps } from "@/types";
 import { CustomButton } from "./CustomButton";
 import { calculateCarRent, generateCarImageUrl } from "@/utils";
 import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
-import { AddIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { CarDetails } from "./CarDetails";
 
 interface CarCardProps {
@@ -206,4 +205,4 @@ export const CarCard = ({ car }: CarCardProps) => {
     </Flex>
   );
 };
-// hpukeylsxbsgrxxd
+

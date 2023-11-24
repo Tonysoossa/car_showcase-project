@@ -1,7 +1,7 @@
 "use client";
 
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
-import { Fragment, useState } from "react";
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CarProps } from "@/types";
 import Image from "next/image";

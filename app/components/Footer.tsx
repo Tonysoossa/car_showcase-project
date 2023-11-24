@@ -1,11 +1,10 @@
 "use strict";
 
-import { Box, Flex, extendTheme, Text, Heading } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { footerLinks } from "@/constants";
-import { use } from "react";
 
 export const Footer = () => {
   return (
@@ -113,4 +112,4 @@ export const Footer = () => {
   );
 };
 
-// video 43:43
+

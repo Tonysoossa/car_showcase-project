@@ -1,28 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import { manufacturers } from "@/constants";
 import { SearchManufacturerPorps } from "@/types";
-import {
-  Box,
-  Button,
-  Flex,
-  Input,
-  Text,
-  Collapse,
-  transition,
-  background,
-  color,
-  BoxProps,
-  InputGroup,
-  InputRightElement,
-  Hide,
-} from "@chakra-ui/react";
-import { ArrowDownIcon, Search2Icon } from "@chakra-ui/icons";
+import { Box, Flex, Input } from "@chakra-ui/react";
+import { ArrowDownIcon} from "@chakra-ui/icons";
 import { Combobox } from "@headlessui/react";
-import { relative } from "path";
-import { off } from "process";
 
 export const SearchManufacturer = ({
   selected,
@@ -139,5 +123,3 @@ export const SearchManufacturer = ({
     </Flex>
   );
 };
-
-//NOTE FIX scroll back to top after button submited

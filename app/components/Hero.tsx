@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
-import { Box, Flex, Spacer, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { CustomButton } from "./CustomButton";
-import { extendTheme } from "@chakra-ui/react";
 
-const Hero = () => {
+export const Hero = () => {
   const handleScroll = () => {};
   return (
     <Box>
@@ -45,7 +44,7 @@ const Hero = () => {
           />
         </Box>
         <Flex
-          // title="hero_image-container" NOTE
+          title="hero_image-container"
           flexGrow={{ xl: "1.5" }}
           justify="flex-end"
           alignItems="flex-end"
@@ -53,10 +52,10 @@ const Hero = () => {
           h={{ xl: "100vh" }}
         >
           <Box
-            // title="hero_image" NOTE
+            title="hero_image"
             position="relative"
-            width={{ base: "60%", xl: "50%" }}
-            mb={{ base: "13px", xl: "62px", "2xl": "50px" }}
+            width={{ base: "60%", xl: "65%", "2xl": "70%" }}
+            mb={{ base: "13px", xl: "67px" }}
             h={{ xl: "full" }}
             height="590px"
             zIndex="0"
@@ -69,7 +68,7 @@ const Hero = () => {
             />
           </Box>
           <Box
-            // title="hero_image-overlay" NOTE
+            title="hero_image-overlay"
             position="absolute"
             top={{ xl: "-24" }}
             right={{ xl: "-50%", base: "-25%" }}
@@ -86,8 +85,3 @@ const Hero = () => {
     </Box>
   );
 };
-
-export default Hero;
-
-// NOTE absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
-//

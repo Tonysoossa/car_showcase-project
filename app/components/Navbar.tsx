@@ -40,6 +40,4 @@ export const Navbar = () => {
   );
 };
 
-// NOTE "max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4"
 
-// principal car image doesnt moove to the right (hero menu) and the 'sign in' button isnt in the right place too

@@ -1,8 +1,5 @@
-import Image from "next/image";
-
 import { CustomButtonProps } from "@/types";
-import { Box, Button, ButtonProps, Text } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { Button, Text } from "@chakra-ui/react";
 
 export const CustomButton = ({
   title,
@@ -33,5 +30,3 @@ export const CustomButton = ({
     </Button>
   );
 };
-
-// NOTE custom btn flex flex-row relative justify-center items-center py-3 px-6 outline-none;

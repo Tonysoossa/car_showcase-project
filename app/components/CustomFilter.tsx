@@ -2,27 +2,22 @@
 
 import { CustomFilterProps } from "@/types";
 import {
-  Box,
   Flex,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   Button,
-  position,
 } from "@chakra-ui/react";
 import React, { useState, Fragment } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { updateSearchParams } from "@/utils";
 
 export const CustomFilter = ({
   title,
   options,
   setFilter,
 }: CustomFilterProps) => {
-  const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
 
   return (

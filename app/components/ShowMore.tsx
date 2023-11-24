@@ -1,12 +1,9 @@
 "use client";
 
 import { ShowMoreProps } from "@/types";
-import { useRouter } from "next/navigation";
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { CustomButton } from ".";
-import { group } from "console";
-import { updateSearchParams } from "@/utils";
 
 export const ShowMore = ({ pageNumber, isNext, setLimit }: ShowMoreProps) => {
   const handleNavigation = () => {

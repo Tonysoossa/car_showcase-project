@@ -5,20 +5,16 @@ import { fetchCars } from "@/utils";
 
 import {
   Box,
-  ChakraProvider,
-  Container,
   Flex,
   Grid,
   Heading,
   Text,
-  VisuallyHidden,
 } from "@chakra-ui/react";
 import {
   Hero,
   CustomFilter,
   SearchBar,
   CarCard,
-  SearchManufacturer,
   ShowMore,
 } from "./components";
 import { fuels, yearsOfProduction } from "@/constants";
