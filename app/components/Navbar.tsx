@@ -29,9 +29,10 @@ export const Navbar = () => {
             title="Sign In"
             btnType="button"
             rounded="full"
+            p="4"
             color="#1e88e5"
             bg="white"
-            p="5"
+            _hover={{ bg: "#42a5f5", color: "black" }}
           />
         </Flex>
       </Heading>

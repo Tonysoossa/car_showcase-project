@@ -36,7 +36,8 @@ const Hero = () => {
           <CustomButton
             title="Explore Cars"
             bg="#1e88e5"
-            fontStyle="white"
+            color="white"
+            _hover={{ bg: "#42a5f5", color: "black" }}
             rounded="full"
             mt="10"
             padding="5"
@@ -54,9 +55,8 @@ const Hero = () => {
           <Box
             // title="hero_image" NOTE
             position="relative"
-            w={{ xl: "full" }}
-            width="60%"
-            mb='13px'
+            width={{ base: "60%", xl: "50%" }}
+            mb={{ base: "13px", xl: "62px", "2xl": "50px" }}
             h={{ xl: "full" }}
             height="590px"
             zIndex="0"
@@ -79,7 +79,7 @@ const Hero = () => {
             w="full"
             h={{ xl: "100vh", base: "590px" }}
             overflow="hidden"
-            transform={'rotate(1.8deg)'}
+            transform={"rotate(1.8deg)"}
           />
         </Flex>
       </Flex>

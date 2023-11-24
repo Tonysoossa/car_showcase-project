@@ -20,6 +20,7 @@ import {
   SearchBar,
   CarCard,
   SearchManufacturer,
+  ShowMore,
 } from "./components";
 import { fuels, yearsOfProduction } from "@/constants";
 
@@ -89,8 +90,13 @@ export default async function Home({ searchParams }) {
               position="relative"
               title="home__cars-wrapper"
               as="div"
-              templateColumns={{ lg: "repeat(2, 1fr)", xl: "repeat(3,1fr)" }}
-              w={{ md: "full", sm: "24rem"}}
+              templateColumns={{
+                md: "repeat(1,1fr)",
+                lg: "repeat(2, 1fr)",
+                xl: "repeat(3,1fr)",
+                "2xl": "repeat(4, 1fr)",
+              }}
+              w={{ md: "full", sm: "24rem" }}
               gap="8"
               pt="14"
             >
@@ -98,6 +104,11 @@ export default async function Home({ searchParams }) {
                 <CarCard key={car.model} car={car} />
               ))}
             </Grid>
+
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
           </Box>
         ) : (
           <Box

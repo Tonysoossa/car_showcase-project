@@ -173,6 +173,7 @@ export const CarCard = ({ car }: CarCardProps) => {
         >
           <CustomButton
             title="View More"
+            position="relative"
             w="full"
             py="30px"
             rounded="full"
@@ -187,9 +188,9 @@ export const CarCard = ({ car }: CarCardProps) => {
           <Button
             display="flex"
             position="absolute"
+            right="4"
+            bottom="15px"
             boxSize={{ md: "30px", sm: "25px" }}
-            mt={{ md: "15px", sm: "18px" }}
-            ml={{ md: "380px", sm: "200px" }}
             bg="transparent"
             _hover={{ bg: "#ced4da", opacity: "90%" }}
           >
