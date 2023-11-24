@@ -84,14 +84,14 @@ export default async function Home({ searchParams }) {
         </Flex>
 
         {!isDataEmpty ? (
-          <Box as="section" pl="4" w="36rem">
+          <Box as="section" pl="4" w="36rem" >
             <Flex
               position="relative"
               flexGrow="1"
               flexDirection={{ sm: "column", xl: "row" }}
               as="div"
               title="home__cars-wrapper"
-              minW="full"
+              w={{md:'full', sm:'24rem'}}
               gap="8"
               pt="14"
             >

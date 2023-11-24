@@ -183,14 +183,13 @@ export const CarCard = ({ car }: CarCardProps) => {
             fontSize="18px"
             fontWeight="bold"
             handleClick={() => setIsOpen(true)}
-          ></CustomButton>
-
+          />
           <Button
             display="flex"
             position="absolute"
-            boxSize="30px"
-            mt="15px"
-            ml="380px"
+            boxSize={{ md: "30px", sm: "25px" }}
+            mt={{ md: "15px", sm: "18px" }}
+            ml={{ md: "380px", sm: "200px" }}
             bg="transparent"
             _hover={{ bg: "#ced4da", opacity: "90%" }}
           >
