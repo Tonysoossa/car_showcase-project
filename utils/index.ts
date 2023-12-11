@@ -45,12 +45,10 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
 
   const { make, year, model } = car;
   // NOTE REACTIVER API IMAGES ! //FIX
-  //FIX
-  // url.searchParams.append(
-  //   "customer",
-  //   process.env.NEXT_PUBLIC_IMAGIN_API_KEY || "hrjavascript-mastery"
-  // );
-  //FIX
+  url.searchParams.append(
+    "customer",
+    process.env.NEXT_PUBLIC_IMAGIN_API_KEY || "hrjavascript-mastery"
+  );
   url.searchParams.append("make", make);
   url.searchParams.append("modelFamily", model.split(" ")[0]);
   url.searchParams.append("zoomtype", "fullscreen");
