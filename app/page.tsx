@@ -1,6 +1,8 @@
 "use strict";
 "use client";
 
+//NOTE site link : https://car-showcase-project-ivory.vercel.app/
+
 import { fetchCars } from "@/utils";
 
 import {

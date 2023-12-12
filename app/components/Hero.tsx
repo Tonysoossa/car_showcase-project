@@ -54,8 +54,8 @@ export const Hero = () => {
           <Box
             title="hero_image"
             position="relative"
-            width={{ base: "60%", xl: "65%", "2xl": "70%" }}
-            mb={{ base: "13px", xl: "67px" }}
+            width={{ base: "60%", xl: "65.3%", "2xl": "97.5%" }}
+            mb={{ base: "13px", xl: "67px", "2xl": "65px" }}
             h={{ xl: "full" }}
             height="590px"
             zIndex="0"
